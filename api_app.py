@@ -15,6 +15,8 @@ app = FastAPI()
 model = load_model("results/mnist_model.h5")
 
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+def preprocess_image(image_bytes):
+    image = Image.open(io.BytesIO(image_bytes)).convert("L").resize((28, 28))
+    img_array = np.array(image) / 255.0
+    img_array = img_array.reshape(1, 28, 28, 1)
+    return img_array
