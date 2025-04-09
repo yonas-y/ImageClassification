@@ -13,3 +13,8 @@ app = FastAPI()
 
 # Load model once at startup
 model = load_model("results/mnist_model.h5")
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
