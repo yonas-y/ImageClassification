@@ -11,6 +11,11 @@ import io
 
 app = FastAPI()
 
+
+@app.get("/")
+def root():
+    return {"message": "Welcome to the User Info API"}
+
 # Load model once at startup
 model = load_model("results/mnist_model.h5")
 
@@ -32,4 +37,3 @@ async def predict(image_bytes: UploadFile = File(...)):
         return prediction_digit
     except Exception as e:
         return JSONResponse({"error": str(e)}, status_code=400)
-        
