@@ -1,6 +1,6 @@
-# --- api_app.py ---
-# Step 2: Create FastAPI App to Serve Predictions
-# -----------------------------------------------
+#################### --- api_app.py --- ###################
+##### Step 2: Create FastAPI App to Serve Predictions #####
+##### ----------------------------------------------- #####
 
 from fastapi import FastAPI, File, UploadFile, Request
 from fastapi.responses import JSONResponse, StreamingResponse
